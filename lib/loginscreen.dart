@@ -3,7 +3,7 @@ import 'package:flutter_application_6/Signupscreen.dart';
 import 'package:flutter_application_6/app_theme_cubit.dart';
 import 'package:flutter_application_6/app_theme_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+
 
 class Loginscreen extends StatelessWidget {
   final String? prefilledEmail;
@@ -30,86 +30,83 @@ class Loginscreen extends StatelessWidget {
                   fit: BoxFit.contain,
                 ),
               ),
-              centerTitle: false,
             ),
 
-            body: SizedBox(
-              width: double.infinity,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    margin: EdgeInsets.all(10),
-                    child: const Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Text(
-                        "Let's Connect With Us!",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
+            body: Padding(
+              padding: const EdgeInsets.all(30),
+              child: SizedBox(
+                width: double.infinity,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                        Text(
+                          "Let's Connect With Us!",
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.all(10),
-                    child: TextFormField(
-                      controller: controller,
-                      decoration: const InputDecoration(
-                        labelText: 'Email Address',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  Container(
-                    margin: EdgeInsets.all(10),
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: 'Password',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                      ),
-                    ),
-                  ),
+                        const SizedBox(height: 20),
 
-                  Container(
-                    alignment: AlignmentGeometry.centerRight,
-                    child: Text("Forgot Password?"),
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    width: 370,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.blue,
+
+                      TextFormField(
+                        controller: controller,
+                        decoration: const InputDecoration(
+                          labelText: 'Email Address',
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                        ),
+                      ),
+
+                    const SizedBox(height: 20),
+
+                      TextFormField(
+                        decoration: const InputDecoration(
+                          labelText: 'Password',
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                        ),
+                      ),
+                      
+                      const SizedBox(height: 10),
+              
+                    Container(
+                      alignment: AlignmentGeometry.centerRight,
+                      child: Text("Forgot Password?"),
                     ),
-                    alignment: AlignmentGeometry.center,
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                    const SizedBox(height: 15),
+                    Container(
+                      width: 370,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.blue,
+                      ),
+                      alignment: AlignmentGeometry.center,
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             bottomNavigationBar: BottomAppBar(
