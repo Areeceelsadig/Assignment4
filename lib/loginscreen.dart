@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_6/Signupscreen.dart';
+import 'package:flutter_application_6/api_service.dart';
 import 'package:flutter_application_6/app_theme_cubit.dart';
 import 'package:flutter_application_6/app_theme_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
+
 class Loginscreen extends StatelessWidget {
+  final TextEditingController emailController;
+  final TextEditingController passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  final apiservice = ApiService();
   final String? prefilledEmail;
-    const Loginscreen({super.key, this.prefilledEmail});
+
+  Loginscreen({super.key, this.prefilledEmail})
+      : emailController = TextEditingController(text: prefilledEmail ?? "");
+    
 
   @override
   Widget build(BuildContext context) {
-        final controller = TextEditingController(text: prefilledEmail ?? "");
-
+ 
     return BlocBuilder<AppThemeCubit, AppThemeState>(
       builder: (context, state) {
         return SafeArea(
@@ -50,6 +58,7 @@ class Loginscreen extends StatelessWidget {
                         const SizedBox(height: 20),
 
 
+<<<<<<< HEAD
                       TextFormField(
                         controller: controller,
                         decoration: const InputDecoration(
@@ -80,6 +89,60 @@ class Loginscreen extends StatelessWidget {
                           ),
                         ),
                       ),
+=======
+                      Form(
+                        key: _formKey,
+                        child: Column(
+                          children: [
+                            TextFormField(
+                              controller: emailController,
+                              decoration: InputDecoration(
+                                labelText: 'Email Address',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              validator: (value) {
+                                if (value == null || value.trim().isEmpty) {
+                                  return 'Please enter your email';
+                                }
+                                return null;
+                              },
+                            ) ,
+                            
+                            
+                          const SizedBox(height: 20),
+                            
+                            TextFormField(
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                labelText: 'Password',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                enabledBorder: const OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  borderSide: BorderSide(),
+                                ),
+                                focusedBorder: const OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                                  borderSide: BorderSide(),
+                                ),
+                              ),
+                              validator: (value) {
+                                if (value == null || value.trim().isEmpty) {
+                                  return 'Please enter your password';
+                                }
+                                if (value.length < 4) {
+                                  return 'Password must be at least 4 characters';
+                                }
+                                return null;
+                              },
+                            ),
+                          ],
+                        ),
+                      ) ,
+>>>>>>> 27d6af1 (assignment6)
                       
                       const SizedBox(height: 10),
               
@@ -95,6 +158,7 @@ class Loginscreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.blue,
                       ),
+<<<<<<< HEAD
                       alignment: AlignmentGeometry.center,
                       child: Text(
                         "Login",
@@ -102,6 +166,27 @@ class Loginscreen extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
+=======
+                      alignment: Alignment.center,
+                      child: TextButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                        context.goNamed("HomeScreen");
+
+                      } else {
+                        print('Validation failed');
+                        }
+                        
+
+                      },
+                        child: const Text(
+                          "Login",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+>>>>>>> 27d6af1 (assignment6)
                         ),
                       ),
                     ),

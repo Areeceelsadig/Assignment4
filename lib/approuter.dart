@@ -1,4 +1,5 @@
 import 'package:flutter_application_6/Signupscreen.dart';
+import 'package:flutter_application_6/homescreen.dart';
 import 'package:flutter_application_6/loginscreen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,6 +20,11 @@ class Approuter {
         return Loginscreen(prefilledEmail: email);
     },
     ) , 
+    GoRoute(
+      name: "HomeScreen",
+      path: "/home",
+      builder: (context, state) => HomeScreen(),
+      ), 
   ]
   ); 
 }

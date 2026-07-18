@@ -10,4 +10,8 @@ class Apptheme {
     brightness: Brightness.dark,
     primaryColor: Colors.black,
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 27d6af1 (assignment6)
